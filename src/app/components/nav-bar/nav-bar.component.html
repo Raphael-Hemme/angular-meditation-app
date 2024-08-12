@@ -1,0 +1,5 @@
+<nav>
+  @for (opt of currNavOptions; track opt.name) {
+  <a [routerLink]="opt.path">{{ opt.name }}</a>
+  }
+</nav>

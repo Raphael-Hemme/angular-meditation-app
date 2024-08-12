@@ -3,6 +3,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PracticePageComponent } from './pages/practice-page/practice-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { StatsPageComponent } from './pages/stats-page/stats-page.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'settings',
     component: SettingsPageComponent,
+  },
+  {
+    path: 'stats',
+    component: StatsPageComponent,
   },
   {
     path: '**',
