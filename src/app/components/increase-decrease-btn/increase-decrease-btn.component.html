@@ -1,0 +1,11 @@
+<button
+  type="button"
+  class="neumorphic-btn btn-s"
+  (mousedown)="startAction()"
+  (mouseup)="stopAction()"
+  (mouseleave)="stopAction()"
+  (touchstart)="startAction()"
+  (touchend)="stopAction()"
+>
+  <span>{{ type === "INC" ? "+" : "-" }}</span>
+</button>

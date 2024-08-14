@@ -4,6 +4,7 @@ $surface-light: rgb(212, 244, 247);
 
 * {
   font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,8 +22,14 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid rgb(191, 217, 219);
+  padding: 1rem;
 }
 
 .active-btn {
   background-color: aquamarine;
+}
+
+.btn-s {
+  width: 2rem;
+  height: 2rem;
 }
