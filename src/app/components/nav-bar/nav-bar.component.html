@@ -1,5 +1,5 @@
 <nav>
-  @for (opt of currNavOptions; track opt.name) {
-  <a [routerLink]="opt.path">{{ opt.name }}</a>
+  @for (opt of currNavOptions(); track opt.name) {
+  <a [routerLink]="opt.path" class="neumorphic-btn">{{ opt.name }}</a>
   }
 </nav>

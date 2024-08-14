@@ -1,8 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+$surface-light: rgb(212, 244, 247);
+
 * {
   font-family: sans-serif;
 }
 
 body {
-  background-color: rgb(191, 225, 236);
+  padding: 1.5rem;
+  background-color: $surface-light;
+  margin: 0;
+}
+
+.neumorphic-btn {
+  width: 4rem;
+  height: 4rem;
+  background-color: $surface-light;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(191, 217, 219);
 }

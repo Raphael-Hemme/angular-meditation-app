@@ -1,0 +1,10 @@
+.app-wrapper {
+  height: calc(100vh - 2 * 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-container {
+  height: 100%;
+}
