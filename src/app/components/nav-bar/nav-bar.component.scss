@@ -1,4 +1,28 @@
 nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "settings practice stats";
+  gap: 4rem;
+}
+
+.settings {
+  grid-area: settings;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.practice {
+  grid-area: practice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats {
+  grid-area: stats;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

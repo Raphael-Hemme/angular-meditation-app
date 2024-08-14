@@ -1,5 +1,21 @@
 <nav>
-  @for (opt of currNavOptions(); track opt.name) {
-  <a [routerLink]="opt.path" class="neumorphic-btn">{{ opt.name }}</a>
+  @for (opt of navOptions; track opt.name) {
+  <div [ngClass]="opt.name">
+    <a
+      [routerLink]="opt.path"
+      routerLinkActive="active-btn"
+      class="neumorphic-btn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#5f6368"
+      >
+        <path [attr.d]="opt.svg_path" />
+      </svg>
+    </a>
+  </div>
   }
 </nav>
