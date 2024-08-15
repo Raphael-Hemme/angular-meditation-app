@@ -6,7 +6,9 @@
         type="INC"
         (incDecEvent)="increaseHours()"
       ></app-increase-decrease-btn>
-      <input type="number" id="hours-input" [(ngModel)]="hours" />
+      <div class="input-bezel">
+        <input type="number" id="hours-input" [(ngModel)]="hours" />
+      </div>
       <app-increase-decrease-btn
         type="DEC"
         (incDecEvent)="decreaseHours()"
@@ -21,13 +23,15 @@
         type="INC"
         (incDecEvent)="increaseMinutes()"
       ></app-increase-decrease-btn>
-      <input
-        type="number"
-        id="minutes-input"
-        min="0"
-        max="59"
-        [(ngModel)]="minutes"
-      />
+      <div class="input-bezel">
+        <input
+          type="number"
+          id="minutes-input"
+          min="0"
+          max="59"
+          [(ngModel)]="minutes"
+        />
+      </div>
       <app-increase-decrease-btn
         type="DEC"
         (incDecEvent)="decreaseMinutes()"

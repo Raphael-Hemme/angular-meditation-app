@@ -1,5 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+$shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+  -0.2rem -0.2rem 0.5rem var(--white);
+$inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+  inset -0.2rem -0.2rem 0.5rem var(--white);
+
+$bezel-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+  -0.2rem -0.2rem 0.5rem var(--white);
+
 $surface-light: rgb(212, 244, 247);
 
 * {
@@ -9,27 +29,65 @@ $surface-light: rgb(212, 244, 247);
 
 body {
   padding: 1.5rem;
-  background-color: $surface-light;
+  background-color: var(--greyLight-1);
   margin: 0;
 }
 
+// Adaptet from this project: https://codepen.io/myacode/pen/PoqQQNM
 .neumorphic-btn {
   width: 4rem;
   height: 4rem;
-  background-color: $surface-light;
+  background-color: var(--greyLight-1);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(191, 217, 219);
+  border: none;
+  //border: 2px solid var(--greyLight-1);
   padding: 1rem;
+  box-shadow: $shadow;
+  &:active {
+    box-shadow: $inner-shadow;
+    color: var(--primary);
+  }
+  &:hover {
+    color: var(--primary);
+  }
 }
 
 .active-btn {
-  background-color: aquamarine;
+  background-color: rgba(75, 195, 255, 0.7);
 }
 
 .btn-s {
   width: 2rem;
   height: 2rem;
+}
+
+.btn-l {
+  width: 6rem;
+  height: 6rem;
+}
+
+.btn-bezel {
+  border-radius: 50%;
+  border: 0.2rem solid var(--greyLight-1);
+  box-shadow: $bezel-shadow;
+}
+
+.input-bezel {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  box-shadow: $inner-shadow;
+  background: none;
+  font-family: inherit;
+  color: var(--greyDark);
+  overflow: hidden;
+  padding: 0.7rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: $shadow;
+  }
 }
