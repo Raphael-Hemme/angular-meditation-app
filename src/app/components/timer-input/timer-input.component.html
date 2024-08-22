@@ -39,3 +39,20 @@
     </div>
   </div>
 </section>
+
+<!-- <div>
+  <p>h: {{ hours() }}</p>
+  <p>h: {{ minutes() }}</p>
+  <p>h: {{ currTimerSetByUser().toFormat("hh:mm") }}</p>
+</div> -->
+
+<div>
+  <h3>static timer</h3>
+  <p>h: {{ currTimerSetByUser().toFormat("hh:mm") }}</p>
+
+  <h3>running timer</h3>
+  <p>h: {{ currRunningTimer().toFormat("hh:mm:ss") }}</p>
+
+  <button (click)="startTimer()">start</button>
+  <button (click)="stopTimer()">stop</button>
+</div>
