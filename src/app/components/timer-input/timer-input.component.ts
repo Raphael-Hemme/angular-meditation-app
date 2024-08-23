@@ -1,8 +1,9 @@
-import { Component, Signal, WritableSignal } from '@angular/core';
+import { Component, computed, Signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IncreaseDecreaseBtnComponent } from '../increase-decrease-btn/increase-decrease-btn.component';
 import { Duration } from 'luxon';
 import { TimerService } from '../../services/timer-service/timer.service';
+import { SessionService } from '../../services/session-service/session.service';
 
 @Component({
   selector: 'app-timer-input',
@@ -16,12 +17,23 @@ export class TimerInputComponent {
   public minutes: WritableSignal<number>;
   public currTimerSetByUser: Signal<Duration>;
   public currRunningTimer: Signal<Duration>;
+  public isPaused: Signal<boolean>;
+  public sessionHasStarted: Signal<boolean>;
 
-  constructor(public readonly timerService: TimerService) {
+  constructor(
+    public readonly timerService: TimerService,
+    private readonly sessionService: SessionService
+  ) {
     this.hours = this.timerService.hours;
     this.minutes = this.timerService.minutes;
     this.currTimerSetByUser = this.timerService.currTimerSetByUser;
     this.currRunningTimer = this.timerService.currRunningTimer;
+    this.isPaused = computed(() => {
+      return !!this.timerService.currBreak();
+    });
+    this.sessionHasStarted = computed(() => {
+      return !!this.sessionService.currSessionStart();
+    });
   }
 
   public increaseHours(): void {
@@ -54,5 +66,11 @@ export class TimerInputComponent {
 
   public stopTimer(): void {
     this.timerService.stopTimer();
+  }
+
+  public togglePause(): void {
+    this.isPaused()
+      ? this.timerService.unpauseTimer()
+      : this.timerService.pauseTimer();
   }
 }

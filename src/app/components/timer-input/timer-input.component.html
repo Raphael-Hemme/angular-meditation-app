@@ -53,6 +53,7 @@
   <h3>running timer</h3>
   <p>h: {{ currRunningTimer().toFormat("hh:mm:ss") }}</p>
 
-  <button (click)="startTimer()">start</button>
+  <button (click)="startTimer()" [disabled]="sessionHasStarted()">start</button>
   <button (click)="stopTimer()">stop</button>
+  <button (click)="togglePause()">{{ isPaused() ? "resume" : "pause" }}</button>
 </div>
