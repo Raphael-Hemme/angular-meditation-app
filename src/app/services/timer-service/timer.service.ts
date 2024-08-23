@@ -43,7 +43,7 @@ export class TimerService {
 
   constructor(private readonly sessionService: SessionService) {}
 
-  public startTimer(): void {
+  public startTimer(isInitialStart: boolean = false): void {
     // This is stupid... and does not work. find better solution for savly preventing starting another sub
     /* if (!!this.timerSub && !!!this.currBreak()) {
       console.log(this.currBreak(), '=', !!this.currBreak());
@@ -51,8 +51,9 @@ export class TimerService {
       return;
     } */
 
-    // Todo: This needs to be fixed... when restarting the sessionStartTime is updated with the time of the break end.
-    this.sessionService.currSessionStart.set(DateTime.now());
+    if (isInitialStart) {
+      this.sessionService.currSessionStart.set(DateTime.now());
+    }
 
     this.timerSub = interval(1000)
       .pipe(

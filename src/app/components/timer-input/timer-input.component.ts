@@ -61,7 +61,7 @@ export class TimerInputComponent {
   }
 
   public startTimer(): void {
-    this.timerService.startTimer();
+    this.timerService.startTimer(true);
   }
 
   public stopTimer(): void {
