@@ -1,3 +1,9 @@
 <div class="practice-page-container">
-  <app-timer-input></app-timer-input>
+  @if (currScreen() === 'TIME_SELECTION_SCREEN') {
+  <app-timer-input>
+    <button (click)="confirmTime()">start</button>
+  </app-timer-input>
+  } @if (currScreen() === 'SESSION_SCREEN') {
+  <app-timer></app-timer>
+  }
 </div>

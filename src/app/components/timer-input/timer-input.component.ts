@@ -15,10 +15,6 @@ import { SessionService } from '../../services/session-service/session.service';
 export class TimerInputComponent {
   public hours: WritableSignal<number>;
   public minutes: WritableSignal<number>;
-  public currTimerSetByUser: Signal<Duration>;
-  public currRunningTimer: Signal<Duration>;
-  public isPaused: Signal<boolean>;
-  public sessionHasStarted: Signal<boolean>;
 
   constructor(
     public readonly timerService: TimerService,
@@ -26,14 +22,6 @@ export class TimerInputComponent {
   ) {
     this.hours = this.timerService.hours;
     this.minutes = this.timerService.minutes;
-    this.currTimerSetByUser = this.timerService.currTimerSetByUser;
-    this.currRunningTimer = this.timerService.currRunningTimer;
-    this.isPaused = computed(() => {
-      return !!this.timerService.currBreak();
-    });
-    this.sessionHasStarted = computed(() => {
-      return !!this.sessionService.currSessionStart();
-    });
   }
 
   public increaseHours(): void {
@@ -58,19 +46,5 @@ export class TimerInputComponent {
     this.minutes.update((value) => {
       return value > 0 ? value - 1 : 0;
     });
-  }
-
-  public startTimer(): void {
-    this.timerService.startTimer(true);
-  }
-
-  public stopTimer(): void {
-    this.timerService.stopTimer();
-  }
-
-  public togglePause(): void {
-    this.isPaused()
-      ? this.timerService.unpauseTimer()
-      : this.timerService.pauseTimer();
   }
 }

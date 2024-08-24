@@ -2,6 +2,7 @@
   <button
     type="button"
     class="neumorphic-btn btn-s btn-experiment"
+    (click)="incDecEvent.emit(type)"
     (mousedown)="startAction()"
     (mouseup)="stopAction()"
     (mouseleave)="stopAction()"
