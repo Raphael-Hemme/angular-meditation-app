@@ -1,7 +1,10 @@
 <div class="practice-page-container">
   @if (currScreen() === 'TIME_SELECTION_SCREEN') {
   <app-timer-input>
-    <button (click)="confirmTime()">start</button>
+    <button (click)="confirmTime()" class="neumorphic-btn btn-l glowing-btn">
+      <div class="glow"></div>
+      <div class="overlay">go</div>
+    </button>
   </app-timer-input>
   } @if (currScreen() === 'SESSION_SCREEN') {
   <app-timer></app-timer>
