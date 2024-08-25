@@ -17,6 +17,13 @@ $shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
 $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
   inset -0.2rem -0.2rem 0.5rem var(--white);
 
+$inverted-btn-shadow: inset 0.2rem 0.2rem 0.4rem #ffffffbb,
+  -0.18rem -0.18rem 0.35rem #ffffffbb, inset -0.18rem -0.18rem 0.35rem #00000022,
+  0.2rem 0.2rem 0.4rem #00000011;
+
+$inverted-inner-shadow: inset 0.2rem 0.2rem 0.5rem #00000022,
+  inset -0.2rem -0.2rem 0.5rem #ffffff99;
+
 $bezel-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
   -0.2rem -0.2rem 0.5rem var(--white);
 $bezel-shadow-m: 0.5rem 0.5rem 1rem var(--greyLight-3),
@@ -59,12 +66,13 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  // border: 1px solid var(--greyLight-1);
   border: none;
-  //border: 2px solid var(--greyLight-1);
   padding: 1rem;
-  box-shadow: $shadow;
+  //outline: 1px solid transparent;
+  box-shadow: $inverted-btn-shadow;
   &:active {
-    box-shadow: $inner-shadow;
+    box-shadow: $inverted-inner-shadow;
     color: var(--primary);
   }
   &:hover {
@@ -73,7 +81,13 @@ input[type="number"] {
 }
 
 .active-btn {
-  border: 2px solid rgba(76, 194, 253, 0.88);
+  // border: 2px solid rgba(76, 194, 253, 1);
+  box-shadow: $inverted-inner-shadow;
+  svg {
+    fill: rgba(76, 194, 253, 1);
+  }
+  /* box-shadow: 0 0 2px 2px rgba(155, 222, 255, 0.2),
+    inset 0 0 2px 2px rgba(97, 202, 255, 0.2); */
 }
 
 .btn-s {
@@ -84,6 +98,10 @@ input[type="number"] {
 .btn-l {
   width: 8rem;
   height: 8rem;
+}
+
+.btn-primary {
+  background-color: rgb(76, 194, 253);
 }
 
 .btn-bezel,
@@ -117,36 +135,6 @@ input[type="number"] {
   &:focus {
     outline: none;
     box-shadow: $shadow;
-  }
-}
-
-.glowing-btn {
-  position: relative;
-  padding: 1rem;
-  .glow {
-    position: relative;
-    /* top: 2rem;
-    right: 2rem;
-    bottom: 2rem;
-    left: 2rem; */
-    width: 80%;
-    height: 80%;
-    z-index: 0;
-    background-color: rgba(76, 194, 253, 0.88);
-    border-radius: 50%;
-  }
-  .overlay {
-    position: absolute;
-    top: 0rem;
-    right: 0rem;
-    bottom: 0rem;
-    left: 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    backdrop-filter: blur(0.8rem);
-    border-radius: 50%;
   }
 }
 
